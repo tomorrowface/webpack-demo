@@ -23,8 +23,7 @@ const webpackConfig = {
         filename: '[name].bundle.js'
     },
 	resolve: {
-        enforceExtension: false,
-        enforceModuleExtension: false,
+        extensions: [".js", ".jsx", ".json"],
 		alias: {
 			'src': path.resolve(__dirname, 'src'),
 			'common': path.resolve(__dirname, 'src/common'),
