@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const styleLoader = ['style-loader','css-loader',
     {
@@ -17,7 +18,10 @@ const styleLoader = ['style-loader','css-loader',
 
 const webpackConfig = {
     context: __dirname,
-    entry: './src/App.js',
+    entry: {
+        main: './src/App.js',
+        vendor: ["antd"]
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
@@ -44,7 +48,7 @@ const webpackConfig = {
                 test: /\.(js|jsx)$/,
                 exclude: path.resolve(__dirname, 'node_modules'),
                 include: path.resolve(__dirname, 'src'),
-                loader: ["jsx-loader", "babel-loader"]
+                loader: ["babel-loader"]
             },
             {
                 test: /\.css$/,
@@ -77,7 +81,8 @@ const webpackConfig = {
             filename: 'index.html',
             template: 'index.html',
             inject: 'body'
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"})
     ]
 }
 
