@@ -1,7 +1,7 @@
 import Layer from './components/layer/layer.js';
 import './css/common.css';
 
-const App = () => {
+const App = function () {
     var dom = document.getElementById('app');
     var layer = new Layer();
 
