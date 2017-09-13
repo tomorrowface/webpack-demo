@@ -1,15 +1,17 @@
-import Layer from './components/layer/layer.js';
-import './css/common.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './App.css';
 
-const App = function () {
-    var dom = document.getElementById('app');
-    var layer = new Layer();
+class App extends React.Component {
 
-    dom.innerHTML = layer.tpl({
-        name: 'john',
-        arr: ['apple', 'opp']
-    });
+    render() {
+        return (
+            <h1>hello react</h1>
+        );
+    }
+}
 
-};
-
-new App();
+ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+);

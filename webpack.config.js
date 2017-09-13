@@ -17,10 +17,27 @@ const styleLoader = ['style-loader','css-loader',
 
 const webpackConfig = {
     context: __dirname,
-    entry: './src/app.js',
+    entry: './src/App.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
+    },
+	resolve: {
+        enforceExtension: false,
+        enforceModuleExtension: false,
+		alias: {
+			'src': path.resolve(__dirname, 'src'),
+			'common': path.resolve(__dirname, 'src/common'),
+			'components': path.resolve(__dirname, 'src/components')
+        },
+        modules: [
+            path.resolve(__dirname, "src"),
+            "node_modules"
+        ]
+    },
+    resolveLoader: {
+        modules: ["node_modules"],
+        extensions: [".js", ".jsx"]
     },
     module: {
         loaders: [
@@ -28,7 +45,7 @@ const webpackConfig = {
                 test: /\.js$/,
                 exclude: path.resolve(__dirname, 'node_modules'),
                 include: path.resolve(__dirname, 'src'),
-                loader: "babel-loader"
+                loader: ["jsx-loader", "babel-loader"]
             },
             {
                 test: /\.css$/,
