@@ -41,7 +41,7 @@ const webpackConfig = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: path.resolve(__dirname, 'node_modules'),
                 include: path.resolve(__dirname, 'src'),
                 loader: ["jsx-loader", "babel-loader"]
@@ -59,10 +59,6 @@ const webpackConfig = {
                 use: styleLoader.concat('sass-loader')
             },
             {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
                 test: /\.tpl$/,
                 loader: 'ejs-loader'
             },
@@ -77,6 +73,7 @@ const webpackConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: 'webpack demo',
             filename: 'index.html',
             template: 'index.html',
             inject: 'body'
