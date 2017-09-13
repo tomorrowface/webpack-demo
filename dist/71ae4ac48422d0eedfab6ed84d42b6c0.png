@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "assets/bg-b5ff8.png";
