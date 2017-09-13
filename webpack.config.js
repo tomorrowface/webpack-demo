@@ -26,12 +26,12 @@ const webpackConfig = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
     },
-	resolve: {
+    resolve: {
         extensions: [".js", ".jsx", ".json"],
-		alias: {
-			'src': path.resolve(__dirname, 'src'),
-			'common': path.resolve(__dirname, 'src/common'),
-			'components': path.resolve(__dirname, 'src/components')
+	alias: {
+	    'src': path.resolve(__dirname, 'src'),
+	    'common': path.resolve(__dirname, 'src/common'),
+	    'components': path.resolve(__dirname, 'src/components')
         },
         modules: [
             path.resolve(__dirname, "src"),
