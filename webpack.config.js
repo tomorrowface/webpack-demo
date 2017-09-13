@@ -1,19 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const postcssOptions = {
-    plugins: [
-        require('postcss-import'),
-        require('autoprefixer')({
-            browsers:['last 5 versions']
-        }),
-    ]
-};
-
 const styleLoader = ['style-loader','css-loader',
     {
         loader: 'postcss-loader',
-        options: postcssOptions
+        options: {
+            plugins: [
+                require('postcss-import'),
+                require('autoprefixer')({
+                    browsers:['last 5 versions']
+                }),
+            ]
+        }
     }
 ];
 
