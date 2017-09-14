@@ -1,15 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Input, Button, Tag } from 'antd';
+import { getTotoList, addTodoList } from '../../actions/todo';
 import './todo.less';
 
-export default class Todo extends React.Component {
+class TodoClass extends React.Component {
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
+        let dispatch = this.props.dispatch;
 
-        this.state = {
-            todoList: []
-        };
+        dispatch(getTotoList());
     }
 
     submit() {
@@ -18,9 +18,7 @@ export default class Todo extends React.Component {
         let value = input.value;
 
         if (value) {
-            this.setState({
-                todoList: this.state.todoList.concat({value: value, color: this.getColor()})
-            });
+            this.props.dispatch(addTodoList({value: value, color: this.getColor()}));
         }
 
         input.value = '';
@@ -42,7 +40,7 @@ export default class Todo extends React.Component {
                 </div>
                 <ul className="todo-list">
                     {
-                        this.state.todoList.map((item, idx) => {
+                        (this.props.todos).map((item, idx) => {
                             return (
                                 <li key={idx}>
                                     <Tag color={item.color}>{item.value}</Tag>
@@ -55,3 +53,11 @@ export default class Todo extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        todos: state.todos.data
+    };
+};
+
+export const Todo = connect(mapStateToProps)(TodoClass); 

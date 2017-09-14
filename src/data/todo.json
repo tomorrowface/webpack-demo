@@ -1,0 +1,32 @@
+{
+    "data": [
+       {
+           "value": "加班",
+           "color": "pink"
+       },
+       {
+           "value": "看电影",
+           "color": "cyan"
+       },
+       {
+           "value": "做小鸡炖蘑菇",
+           "color": "orange"
+       },
+       {
+           "value": "逛街",
+           "color": "purple"
+       },
+       {
+           "value": "洗衣服",
+           "color": "red"
+       },
+       {
+           "value": "游泳",
+           "color": "blue"
+       },
+       {
+           "value": "去培训班",
+           "color": "green"
+       }
+    ]
+}

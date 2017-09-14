@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Icon, Avatar } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
-import './layout.less';
-
-const CustomizedSider = (props) => <Sider {...props} />
-CustomizedSider.__ANT_LAYOUT_SIDER = true;
+import './container.less';
 
 export default class Container extends React.Component {
   constructor(props) {
@@ -27,7 +24,7 @@ export default class Container extends React.Component {
       <Layout>
         <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
           <div className="logo" />
-          <Menu theme="light" mode="inline" defaultSelectedKeys={['4']}>
+          <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
               <Icon type="home" />
               <span className="nav-text">home</span>
