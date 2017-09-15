@@ -19,8 +19,7 @@ const styleLoader = ['style-loader','css-loader',
 const webpackConfig = {
     context: __dirname,
     entry: {
-        main: './src/App.js',
-        vendor: ["antd"]
+        main: './src/App.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -81,8 +80,7 @@ const webpackConfig = {
             filename: 'index.html',
             template: 'index.html',
             inject: 'body'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"})
+        })
     ]
 }
 
